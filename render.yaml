@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: mi-proyecto-laravel
+    runtime: docker
+    repo: https://github.com/tu-usuario/tu-repo
+    region: oregon
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        sync: false
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        value: tu-db-host
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        value: tu-db
+      - key: DB_USERNAME
+        value: tu-user
+      - key: DB_PASSWORD
+        value: tu-password
+    buildCommand: "composer install --no-dev --optimize-autoloader"
+    startCommand: "php artisan serve --host 0.0.0.0 --port 10000"
