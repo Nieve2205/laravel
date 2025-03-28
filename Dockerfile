@@ -24,9 +24,6 @@ COPY . .
 # Instalar dependencias de Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Generar la clave de la aplicación
-RUN php artisan key:generate
-
 # Dar permisos a la carpeta de almacenamiento y caché
 RUN chmod -R 777 storage bootstrap/cache
 
