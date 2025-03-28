@@ -40,3 +40,6 @@ EXPOSE 80
 
 # Comando para iniciar Apache
 CMD ["apache2-foreground"]
+
+# Ejecutar migraciones automáticamente
+RUN php artisan migrate --force
