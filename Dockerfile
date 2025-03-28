@@ -30,6 +30,10 @@ RUN php artisan key:generate
 # Dar permisos a la carpeta de almacenamiento y caché
 RUN chmod -R 777 storage bootstrap/cache
 
+# Crear y dar permisos a la base de datos SQLite
+RUN mkdir -p /var/www/html/database && touch /var/www/html/database/database.sqlite
+RUN chmod -R 777 /var/www/html/database
+
 # Exponer el puerto 80
 EXPOSE 80
 
